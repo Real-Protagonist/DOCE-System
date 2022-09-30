@@ -16,5 +16,35 @@ namespace Athena
         {
             InitializeComponent();
         }
+
+        private void btnCadFuncionario_Click(object sender, EventArgs e)
+        {
+            this.novo_form(new cadastroFuncionarios());
+        }
+
+        private void novo_form(object form)
+        {
+            Form fm = form as Form;
+
+            if (this.mainContainer.Controls.Count > 0)
+                this.mainContainer.Controls.RemoveAt(0);
+
+            fm.TopLevel = false;
+            fm.Dock = DockStyle.Fill;
+
+            this.mainContainer.Tag = fm;
+            this.mainContainer.Controls.Add(fm);
+            fm.Show();
+        }
+
+        private void btnCadCliente_Click(object sender, EventArgs e)
+        {
+            this.novo_form(new cadastrarCliente());
+        }
+
+        private void btnPagamento_Click(object sender, EventArgs e)
+        {
+            this.novo_form(new pagamentosServicos());
+        }
     }
 }

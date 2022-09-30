@@ -50,12 +50,10 @@
             this.dtCadastro = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dgFuncionariosView = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditarFuncionario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFuncionariosView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -249,18 +247,6 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Data de Cadastro";
             // 
-            // dgFuncionariosView
-            // 
-            this.dgFuncionariosView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgFuncionariosView.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgFuncionariosView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgFuncionariosView.Location = new System.Drawing.Point(228, 254);
-            this.dgFuncionariosView.Name = "dgFuncionariosView";
-            this.dgFuncionariosView.Size = new System.Drawing.Size(894, 278);
-            this.dgFuncionariosView.TabIndex = 22;
-            // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.RoyalBlue;
@@ -302,7 +288,6 @@
             this.Controls.Add(this.btnEditarFuncionario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.dgFuncionariosView);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dtCadastro);
@@ -332,7 +317,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastroFuncionarios";
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFuncionariosView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,7 +346,6 @@
         private System.Windows.Forms.DateTimePicker dtCadastro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgFuncionariosView;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditarFuncionario;

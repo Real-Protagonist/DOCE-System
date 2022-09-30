@@ -37,6 +37,8 @@
             this.btnConsultaP = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.btnRegReclamacao = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnRegSaida = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.btnBloco = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -45,17 +47,15 @@
             this.btnCalc = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.mainContainer = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnCadCliente = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCadFuncionario = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCadUsuario = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnRegSaida = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnAbout = new System.Windows.Forms.Button();
+            this.mainContainer = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.lblDataAt = new System.Windows.Forms.Label();
@@ -72,16 +72,16 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel27.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -147,6 +147,7 @@
             this.btnPagamento.Text = "Pagamentos";
             this.btnPagamento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPagamento.UseVisualStyleBackColor = true;
+            this.btnPagamento.Click += new System.EventHandler(this.btnPagamento_Click);
             // 
             // panel2
             // 
@@ -189,6 +190,27 @@
             this.btnRegReclamacao.Text = "Reg. Reclamação";
             this.btnRegReclamacao.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRegReclamacao.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel5.Controls.Add(this.btnRegSaida);
+            this.panel5.Location = new System.Drawing.Point(279, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(86, 67);
+            this.panel5.TabIndex = 4;
+            // 
+            // btnRegSaida
+            // 
+            this.btnRegSaida.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRegSaida.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegSaida.Location = new System.Drawing.Point(0, 0);
+            this.btnRegSaida.Name = "btnRegSaida";
+            this.btnRegSaida.Size = new System.Drawing.Size(86, 67);
+            this.btnRegSaida.TabIndex = 1;
+            this.btnRegSaida.Text = "Reg. Saída";
+            this.btnRegSaida.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegSaida.UseVisualStyleBackColor = true;
             // 
             // panel20
             // 
@@ -277,6 +299,71 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1356, 75);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
+            // panel23
+            // 
+            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel23.Controls.Add(this.btnCadCliente);
+            this.panel23.Location = new System.Drawing.Point(3, 3);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(86, 67);
+            this.panel23.TabIndex = 7;
+            // 
+            // btnCadCliente
+            // 
+            this.btnCadCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCadCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCadCliente.Location = new System.Drawing.Point(0, 0);
+            this.btnCadCliente.Name = "btnCadCliente";
+            this.btnCadCliente.Size = new System.Drawing.Size(86, 67);
+            this.btnCadCliente.TabIndex = 1;
+            this.btnCadCliente.Text = "Cadastrar Cliente";
+            this.btnCadCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCadCliente.UseVisualStyleBackColor = true;
+            this.btnCadCliente.Click += new System.EventHandler(this.btnCadCliente_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel3.Controls.Add(this.btnCadFuncionario);
+            this.panel3.Location = new System.Drawing.Point(95, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(86, 67);
+            this.panel3.TabIndex = 8;
+            // 
+            // btnCadFuncionario
+            // 
+            this.btnCadFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCadFuncionario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCadFuncionario.Location = new System.Drawing.Point(0, 0);
+            this.btnCadFuncionario.Name = "btnCadFuncionario";
+            this.btnCadFuncionario.Size = new System.Drawing.Size(86, 67);
+            this.btnCadFuncionario.TabIndex = 1;
+            this.btnCadFuncionario.Text = "Cadastrar Funcionário";
+            this.btnCadFuncionario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCadFuncionario.UseVisualStyleBackColor = true;
+            this.btnCadFuncionario.Click += new System.EventHandler(this.btnCadFuncionario_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel4.Controls.Add(this.btnCadUsuario);
+            this.panel4.Location = new System.Drawing.Point(187, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(86, 67);
+            this.panel4.TabIndex = 8;
+            // 
+            // btnCadUsuario
+            // 
+            this.btnCadUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCadUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCadUsuario.Location = new System.Drawing.Point(0, 0);
+            this.btnCadUsuario.Name = "btnCadUsuario";
+            this.btnCadUsuario.Size = new System.Drawing.Size(86, 67);
+            this.btnCadUsuario.TabIndex = 1;
+            this.btnCadUsuario.Text = "Cadastrar Usuário";
+            this.btnCadUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCadUsuario.UseVisualStyleBackColor = true;
+            // 
             // panel6
             // 
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -300,96 +387,14 @@
             // 
             // mainContainer
             // 
+            this.mainContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainContainer.AutoScroll = true;
-            this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Location = new System.Drawing.Point(0, 117);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(1370, 497);
+            this.mainContainer.Size = new System.Drawing.Size(1370, 457);
             this.mainContainer.TabIndex = 5;
-            // 
-            // panel23
-            // 
-            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel23.Controls.Add(this.btnCadCliente);
-            this.panel23.Location = new System.Drawing.Point(3, 3);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(86, 67);
-            this.panel23.TabIndex = 7;
-            // 
-            // btnCadCliente
-            // 
-            this.btnCadCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCadCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCadCliente.Location = new System.Drawing.Point(0, 0);
-            this.btnCadCliente.Name = "btnCadCliente";
-            this.btnCadCliente.Size = new System.Drawing.Size(86, 67);
-            this.btnCadCliente.TabIndex = 1;
-            this.btnCadCliente.Text = "Cadastrar Cliente";
-            this.btnCadCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCadCliente.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.btnCadFuncionario);
-            this.panel3.Location = new System.Drawing.Point(95, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(86, 67);
-            this.panel3.TabIndex = 8;
-            // 
-            // btnCadFuncionario
-            // 
-            this.btnCadFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCadFuncionario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCadFuncionario.Location = new System.Drawing.Point(0, 0);
-            this.btnCadFuncionario.Name = "btnCadFuncionario";
-            this.btnCadFuncionario.Size = new System.Drawing.Size(86, 67);
-            this.btnCadFuncionario.TabIndex = 1;
-            this.btnCadFuncionario.Text = "Cadastrar Funcionário";
-            this.btnCadFuncionario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCadFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.btnCadUsuario);
-            this.panel4.Location = new System.Drawing.Point(187, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(86, 67);
-            this.panel4.TabIndex = 8;
-            // 
-            // btnCadUsuario
-            // 
-            this.btnCadUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCadUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCadUsuario.Location = new System.Drawing.Point(0, 0);
-            this.btnCadUsuario.Name = "btnCadUsuario";
-            this.btnCadUsuario.Size = new System.Drawing.Size(86, 67);
-            this.btnCadUsuario.TabIndex = 1;
-            this.btnCadUsuario.Text = "Cadastrar Usuário";
-            this.btnCadUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCadUsuario.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel5.Controls.Add(this.btnRegSaida);
-            this.panel5.Location = new System.Drawing.Point(279, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(86, 67);
-            this.panel5.TabIndex = 4;
-            // 
-            // btnRegSaida
-            // 
-            this.btnRegSaida.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRegSaida.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRegSaida.Location = new System.Drawing.Point(0, 0);
-            this.btnRegSaida.Name = "btnRegSaida";
-            this.btnRegSaida.Size = new System.Drawing.Size(86, 67);
-            this.btnRegSaida.TabIndex = 1;
-            this.btnRegSaida.Text = "Reg. Saída";
-            this.btnRegSaida.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRegSaida.UseVisualStyleBackColor = true;
             // 
             // panel14
             // 
@@ -504,16 +509,16 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
