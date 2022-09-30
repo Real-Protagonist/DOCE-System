@@ -46,5 +46,20 @@ namespace Athena
         {
             this.novo_form(new pagamentosServicos());
         }
+
+        private void btnBloco_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Notepad.exe");
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Calc.exe");
+        }
+
+        private void Athena_Load(object sender, EventArgs e)
+        {
+            this.novo_form(new home());
+        }
     }
 }

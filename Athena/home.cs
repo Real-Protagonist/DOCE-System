@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Athena
 {
-    public partial class cadastroFuncionarios : Form
+    public partial class home : Form
     {
-        public cadastroFuncionarios()
+        public home()
         {
             InitializeComponent();
-        }
-
-        private void cadastroFuncionarios_Load(object sender, EventArgs e)
-        {
-            this.dtCadastro.Value = DateTime.Now;
         }
     }
 }

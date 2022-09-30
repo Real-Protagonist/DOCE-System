@@ -66,6 +66,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="funcionarios.cs" />
+    <Compile Include="home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
     <Compile Include="pagamentos.cs" />
     <Compile Include="pagamentosServicos.cs">
       <SubType>Form</SubType>
@@ -84,6 +90,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pagamentosServicos.resx">
       <DependentUpon>pagamentosServicos.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,9 +104,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\Athena.Funcoes.funcionarios.datasource" />
     <None Include="Properties\DataSources\clientes.datasource" />
+    <None Include="Properties\DataSources\funcionarios.datasource" />
     <None Include="Properties\DataSources\pagamentos.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DOCE.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

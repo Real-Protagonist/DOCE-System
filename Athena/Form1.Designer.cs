@@ -232,6 +232,7 @@
             this.btnBloco.Text = "Bloco de Notas";
             this.btnBloco.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBloco.UseVisualStyleBackColor = true;
+            this.btnBloco.Click += new System.EventHandler(this.btnBloco_Click);
             // 
             // panel21
             // 
@@ -274,6 +275,7 @@
             this.btnCalc.Text = "Executar Calculadora";
             this.btnCalc.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // tabPage2
             // 
@@ -503,6 +505,7 @@
             this.Name = "Athena";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Athena";
+            this.Load += new System.EventHandler(this.Athena_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.fpMain.ResumeLayout(false);

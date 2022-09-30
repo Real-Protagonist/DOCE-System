@@ -21,6 +21,10 @@ namespace Athena
         {
             this.txtSubtotal.Text = "0,00";
             this.txtTotal.Text = "0,00";
+
+            this.cbFPagamento.SelectedIndex = 3;
+            this.cbMes.SelectedIndex = 0;
+            this.cbServico.SelectedIndex = 0;
         }
     }
 }

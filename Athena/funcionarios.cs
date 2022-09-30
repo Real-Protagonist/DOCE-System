@@ -11,6 +11,9 @@ namespace Athena
         public String primeiro_nome { get; set; }
         public String ultimo_nome { get; set; }
         public String sexo { get; set; }
+        public String bairro { get; set; }
+        public String rua { get; set; }
+        public int casa { get; set; }
         public String email { get; set; }
         public String funcao { get; set; }
         public int tel1 { get; set; }
