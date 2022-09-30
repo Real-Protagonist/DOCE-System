@@ -1,0 +1,12 @@
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\Athena.exe.config
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\Athena.exe
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\Athena.pdb
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.csproj.AssemblyReference.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.csproj.SuggestedBindingRedirects.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.cadastroFuncionarios.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.Athena.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.Properties.Resources.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.csproj.GenerateResource.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.csproj.CoreCompileInputs.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.exe
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.pdb
