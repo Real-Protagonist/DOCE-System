@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fpMain = new System.Windows.Forms.FlowLayoutPanel();
@@ -66,6 +67,7 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.lkLog = new System.Windows.Forms.LinkLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fpMain.SuspendLayout();
@@ -365,6 +367,7 @@
             this.btnCadUsuario.Text = "Cadastrar Usuário";
             this.btnCadUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCadUsuario.UseVisualStyleBackColor = true;
+            this.btnCadUsuario.Click += new System.EventHandler(this.btnCadUsuario_Click);
             // 
             // panel6
             // 
@@ -493,6 +496,11 @@
             this.lkLog.TabIndex = 1;
             this.lkLog.TabStop = true;
             this.lkLog.Text = "Login";
+            this.lkLog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkLog_LinkClicked);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Athena
             // 
@@ -570,6 +578,7 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.LinkLabel lkLog;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

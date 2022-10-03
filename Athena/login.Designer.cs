@@ -43,6 +43,7 @@
             this.btnEnter.TabIndex = 9;
             this.btnEnter.Text = "ENTRAR";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // txtSenha
             // 
@@ -54,6 +55,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Location = new System.Drawing.Point(79, 21);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(175, 20);
@@ -95,7 +97,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "login";
+            this.Text = "ATHENA - LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();
 

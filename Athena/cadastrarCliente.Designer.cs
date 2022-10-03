@@ -60,8 +60,7 @@
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ndCasa = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgCliente = new System.Windows.Forms.DataGridView();
             this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,9 +73,10 @@
             this.ruaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.casaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndCasa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             this.btnEditarFuncionarioC.Location = new System.Drawing.Point(749, 217);
             this.btnEditarFuncionarioC.Name = "btnEditarFuncionarioC";
             this.btnEditarFuncionarioC.Size = new System.Drawing.Size(96, 30);
-            this.btnEditarFuncionarioC.TabIndex = 50;
+            this.btnEditarFuncionarioC.TabIndex = 15;
             this.btnEditarFuncionarioC.Text = "EDITAR";
             this.btnEditarFuncionarioC.UseVisualStyleBackColor = false;
             // 
@@ -98,7 +98,7 @@
             this.btnCancelarC.Location = new System.Drawing.Point(854, 217);
             this.btnCancelarC.Name = "btnCancelarC";
             this.btnCancelarC.Size = new System.Drawing.Size(96, 30);
-            this.btnCancelarC.TabIndex = 49;
+            this.btnCancelarC.TabIndex = 16;
             this.btnCancelarC.Text = "CANCELAR";
             this.btnCancelarC.UseVisualStyleBackColor = false;
             // 
@@ -109,9 +109,10 @@
             this.btnCadastrarC.Location = new System.Drawing.Point(642, 217);
             this.btnCadastrarC.Name = "btnCadastrarC";
             this.btnCadastrarC.Size = new System.Drawing.Size(96, 30);
-            this.btnCadastrarC.TabIndex = 48;
+            this.btnCadastrarC.TabIndex = 14;
             this.btnCadastrarC.Text = "CADASTRAR";
             this.btnCadastrarC.UseVisualStyleBackColor = false;
+            this.btnCadastrarC.Click += new System.EventHandler(this.btnCadastrarC_Click);
             // 
             // label10
             // 
@@ -128,7 +129,7 @@
             this.dtContrato.Location = new System.Drawing.Point(435, 227);
             this.dtContrato.Name = "dtContrato";
             this.dtContrato.Size = new System.Drawing.Size(102, 20);
-            this.dtContrato.TabIndex = 45;
+            this.dtContrato.TabIndex = 12;
             this.dtContrato.Value = new System.DateTime(2022, 9, 30, 0, 0, 0, 0);
             // 
             // txtContrato
@@ -136,21 +137,22 @@
             this.txtContrato.Location = new System.Drawing.Point(228, 227);
             this.txtContrato.Name = "txtContrato";
             this.txtContrato.Size = new System.Drawing.Size(184, 20);
-            this.txtContrato.TabIndex = 43;
+            this.txtContrato.TabIndex = 11;
+            this.txtContrato.TextChanged += new System.EventHandler(this.txtContrato_TextChanged);
             // 
             // txtEmailC
             // 
             this.txtEmailC.Location = new System.Drawing.Point(642, 133);
             this.txtEmailC.Name = "txtEmailC";
             this.txtEmailC.Size = new System.Drawing.Size(184, 20);
-            this.txtEmailC.TabIndex = 42;
+            this.txtEmailC.TabIndex = 7;
             // 
             // txtTel2C
             // 
             this.txtTel2C.Location = new System.Drawing.Point(435, 133);
             this.txtTel2C.Name = "txtTel2C";
             this.txtTel2C.Size = new System.Drawing.Size(136, 20);
-            this.txtTel2C.TabIndex = 41;
+            this.txtTel2C.TabIndex = 6;
             // 
             // label8
             // 
@@ -197,7 +199,7 @@
             this.cbSexoC.Location = new System.Drawing.Point(642, 86);
             this.cbSexoC.Name = "cbSexoC";
             this.cbSexoC.Size = new System.Drawing.Size(121, 21);
-            this.cbSexoC.TabIndex = 36;
+            this.cbSexoC.TabIndex = 3;
             // 
             // label4
             // 
@@ -231,28 +233,31 @@
             this.txtTel1C.Location = new System.Drawing.Point(228, 133);
             this.txtTel1C.Name = "txtTel1C";
             this.txtTel1C.Size = new System.Drawing.Size(136, 20);
-            this.txtTel1C.TabIndex = 32;
+            this.txtTel1C.TabIndex = 5;
+            this.txtTel1C.TextChanged += new System.EventHandler(this.txtTel1C_TextChanged);
             // 
             // txtUNomeC
             // 
             this.txtUNomeC.Location = new System.Drawing.Point(435, 86);
             this.txtUNomeC.Name = "txtUNomeC";
             this.txtUNomeC.Size = new System.Drawing.Size(184, 20);
-            this.txtUNomeC.TabIndex = 31;
+            this.txtUNomeC.TabIndex = 2;
+            this.txtUNomeC.TextChanged += new System.EventHandler(this.txtUNomeC_TextChanged);
             // 
             // txtPNomeC
             // 
             this.txtPNomeC.Location = new System.Drawing.Point(228, 86);
             this.txtPNomeC.Name = "txtPNomeC";
             this.txtPNomeC.Size = new System.Drawing.Size(184, 20);
-            this.txtPNomeC.TabIndex = 30;
+            this.txtPNomeC.TabIndex = 1;
+            this.txtPNomeC.TextChanged += new System.EventHandler(this.txtPNomeC_TextChanged);
             // 
             // btnImportarFotoCliente
             // 
             this.btnImportarFotoCliente.Location = new System.Drawing.Point(56, 254);
             this.btnImportarFotoCliente.Name = "btnImportarFotoCliente";
             this.btnImportarFotoCliente.Size = new System.Drawing.Size(98, 23);
-            this.btnImportarFotoCliente.TabIndex = 29;
+            this.btnImportarFotoCliente.TabIndex = 13;
             this.btnImportarFotoCliente.Text = "Importar";
             this.btnImportarFotoCliente.UseVisualStyleBackColor = true;
             // 
@@ -291,7 +296,7 @@
             this.txtBairro.Location = new System.Drawing.Point(228, 180);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(184, 20);
-            this.txtBairro.TabIndex = 52;
+            this.txtBairro.TabIndex = 8;
             // 
             // label11
             // 
@@ -307,7 +312,7 @@
             this.txtRua.Location = new System.Drawing.Point(435, 180);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(184, 20);
-            this.txtRua.TabIndex = 54;
+            this.txtRua.TabIndex = 9;
             // 
             // label12
             // 
@@ -332,7 +337,8 @@
             this.txtDocumento.Location = new System.Drawing.Point(781, 86);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(184, 20);
-            this.txtDocumento.TabIndex = 58;
+            this.txtDocumento.TabIndex = 4;
+            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
             // 
             // label9
             // 
@@ -348,22 +354,22 @@
             this.ndCasa.Location = new System.Drawing.Point(642, 181);
             this.ndCasa.Name = "ndCasa";
             this.ndCasa.Size = new System.Drawing.Size(96, 20);
-            this.ndCasa.TabIndex = 59;
+            this.ndCasa.TabIndex = 10;
             // 
-            // dataGridView1
+            // dgCliente
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgCliente.AllowUserToAddRows = false;
+            this.dgCliente.AllowUserToDeleteRows = false;
+            this.dgCliente.AllowUserToResizeColumns = false;
+            this.dgCliente.AllowUserToResizeRows = false;
+            this.dgCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgCliente.AutoGenerateColumns = false;
+            this.dgCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCliente.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgCliente.ColumnHeadersHeight = 40;
+            this.dgCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.contratoDataGridViewTextBoxColumn,
             this.primeironomeDataGridViewTextBoxColumn,
             this.ultimonomeDataGridViewTextBoxColumn,
@@ -376,19 +382,15 @@
             this.ruaDataGridViewTextBoxColumn,
             this.casaDataGridViewTextBoxColumn,
             this.cadastroDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.clientesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 294);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1262, 261);
-            this.dataGridView1.TabIndex = 60;
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataSource = typeof(Athena.clientes);
+            this.dgCliente.DataSource = this.clientesBindingSource;
+            this.dgCliente.Location = new System.Drawing.Point(12, 294);
+            this.dgCliente.Name = "dgCliente";
+            this.dgCliente.ReadOnly = true;
+            this.dgCliente.RowHeadersVisible = false;
+            this.dgCliente.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgCliente.Size = new System.Drawing.Size(1262, 261);
+            this.dgCliente.TabIndex = 17;
             // 
             // contratoDataGridViewTextBoxColumn
             // 
@@ -478,12 +480,16 @@
             this.cadastroDataGridViewTextBoxColumn.Name = "cadastroDataGridViewTextBoxColumn";
             this.cadastroDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(clientes);
+            // 
             // cadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 578);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgCliente);
             this.Controls.Add(this.ndCasa);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label9);
@@ -521,9 +527,10 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastrarCliente";
+            this.Load += new System.EventHandler(this.cadastrarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndCasa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -563,7 +570,7 @@
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown ndCasa;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgCliente;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn contratoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn primeironomeDataGridViewTextBoxColumn;

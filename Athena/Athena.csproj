@@ -10,8 +10,9 @@
     <AssemblyName>Athena</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Athena.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\UNAC_SA\ORFEU\bin\Debug\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\UNAC_SA\ORFEU\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bridge.cs" />
     <Compile Include="cadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +69,12 @@
     </Compile>
     <Compile Include="cadastroFuncionarios.Designer.cs">
       <DependentUpon>cadastroFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cadastroUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastroUser.Designer.cs">
+      <DependentUpon>cadastroUser.cs</DependentUpon>
     </Compile>
     <Compile Include="clientes.cs" />
     <Compile Include="Form1.cs">
@@ -92,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cadastroFuncionarios.resx">
       <DependentUpon>cadastroFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadastroUser.resx">
+      <DependentUpon>cadastroUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -134,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DOCE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

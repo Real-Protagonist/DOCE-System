@@ -35,7 +35,7 @@
             this.btnImportarFoto = new System.Windows.Forms.Button();
             this.txtPNome = new System.Windows.Forms.TextBox();
             this.txtUNome = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTel1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,14 +54,7 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditarFuncionario = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtRua = new System.Windows.Forms.TextBox();
-            this.ndCasa = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.dgFuncionarios = new System.Windows.Forms.DataGridView();
             this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,8 +67,17 @@
             this.casa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datanascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datacadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.txtRua = new System.Windows.Forms.TextBox();
+            this.ndCasa = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtDoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndCasa)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +117,7 @@
             this.btnImportarFoto.Location = new System.Drawing.Point(56, 263);
             this.btnImportarFoto.Name = "btnImportarFoto";
             this.btnImportarFoto.Size = new System.Drawing.Size(98, 23);
-            this.btnImportarFoto.TabIndex = 3;
+            this.btnImportarFoto.TabIndex = 14;
             this.btnImportarFoto.Text = "Importar";
             this.btnImportarFoto.UseVisualStyleBackColor = true;
             // 
@@ -125,7 +127,9 @@
             this.txtPNome.Location = new System.Drawing.Point(228, 95);
             this.txtPNome.Name = "txtPNome";
             this.txtPNome.Size = new System.Drawing.Size(184, 20);
-            this.txtPNome.TabIndex = 4;
+            this.txtPNome.TabIndex = 1;
+            this.txtPNome.TextChanged += new System.EventHandler(this.txtPNome_TextChanged);
+            this.txtPNome.VisibleChanged += new System.EventHandler(this.txtPNome_VisibleChanged);
             // 
             // txtUNome
             // 
@@ -133,14 +137,16 @@
             this.txtUNome.Location = new System.Drawing.Point(435, 95);
             this.txtUNome.Name = "txtUNome";
             this.txtUNome.Size = new System.Drawing.Size(184, 20);
-            this.txtUNome.TabIndex = 5;
+            this.txtUNome.TabIndex = 2;
+            this.txtUNome.TextChanged += new System.EventHandler(this.txtUNome_TextChanged);
             // 
-            // textBox3
+            // txtTel1
             // 
-            this.textBox3.Location = new System.Drawing.Point(228, 137);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(136, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtTel1.Location = new System.Drawing.Point(228, 137);
+            this.txtTel1.Name = "txtTel1";
+            this.txtTel1.Size = new System.Drawing.Size(136, 20);
+            this.txtTel1.TabIndex = 6;
+            this.txtTel1.TextChanged += new System.EventHandler(this.txtTel1_TextChanged);
             // 
             // label2
             // 
@@ -178,7 +184,7 @@
             this.cbSexo.Location = new System.Drawing.Point(642, 95);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(121, 21);
-            this.cbSexo.TabIndex = 10;
+            this.cbSexo.TabIndex = 3;
             // 
             // label5
             // 
@@ -221,14 +227,14 @@
             this.txtTel2.Location = new System.Drawing.Point(435, 137);
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.Size = new System.Drawing.Size(136, 20);
-            this.txtTel2.TabIndex = 15;
+            this.txtTel2.TabIndex = 7;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(642, 137);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(184, 20);
-            this.txtEmail.TabIndex = 16;
+            this.txtEmail.TabIndex = 8;
             // 
             // txtFuncao
             // 
@@ -236,15 +242,16 @@
             this.txtFuncao.Location = new System.Drawing.Point(228, 232);
             this.txtFuncao.Name = "txtFuncao";
             this.txtFuncao.Size = new System.Drawing.Size(184, 20);
-            this.txtFuncao.TabIndex = 17;
+            this.txtFuncao.TabIndex = 12;
+            this.txtFuncao.TextChanged += new System.EventHandler(this.txtFuncao_TextChanged);
             // 
             // dtNascimento
             // 
             this.dtNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNascimento.Location = new System.Drawing.Point(786, 95);
+            this.dtNascimento.Location = new System.Drawing.Point(978, 95);
             this.dtNascimento.Name = "dtNascimento";
             this.dtNascimento.Size = new System.Drawing.Size(102, 20);
-            this.dtNascimento.TabIndex = 18;
+            this.dtNascimento.TabIndex = 5;
             this.dtNascimento.Value = new System.DateTime(2022, 9, 30, 0, 0, 0, 0);
             // 
             // dtCadastro
@@ -253,13 +260,13 @@
             this.dtCadastro.Location = new System.Drawing.Point(435, 232);
             this.dtCadastro.Name = "dtCadastro";
             this.dtCadastro.Size = new System.Drawing.Size(102, 20);
-            this.dtCadastro.TabIndex = 19;
+            this.dtCadastro.TabIndex = 13;
             this.dtCadastro.Value = new System.DateTime(2022, 9, 30, 0, 0, 0, 0);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(783, 79);
+            this.label9.Location = new System.Drawing.Point(975, 79);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 13);
             this.label9.TabIndex = 20;
@@ -281,9 +288,10 @@
             this.btnCadastrar.Location = new System.Drawing.Point(614, 230);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(96, 30);
-            this.btnCadastrar.TabIndex = 23;
+            this.btnCadastrar.TabIndex = 15;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnCancelar
             // 
@@ -292,7 +300,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(826, 230);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 30);
-            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -303,24 +311,24 @@
             this.btnEditarFuncionario.Location = new System.Drawing.Point(721, 230);
             this.btnEditarFuncionario.Name = "btnEditarFuncionario";
             this.btnEditarFuncionario.Size = new System.Drawing.Size(96, 30);
-            this.btnEditarFuncionario.TabIndex = 25;
+            this.btnEditarFuncionario.TabIndex = 16;
             this.btnEditarFuncionario.Text = "EDITAR";
             this.btnEditarFuncionario.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgFuncionarios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgFuncionarios.AllowUserToAddRows = false;
+            this.dgFuncionarios.AllowUserToDeleteRows = false;
+            this.dgFuncionarios.AllowUserToResizeColumns = false;
+            this.dgFuncionarios.AllowUserToResizeRows = false;
+            this.dgFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgFuncionarios.AutoGenerateColumns = false;
+            this.dgFuncionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgFuncionarios.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgFuncionarios.ColumnHeadersHeight = 40;
+            this.dgFuncionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.primeironomeDataGridViewTextBoxColumn,
             this.ultimonomeDataGridViewTextBoxColumn,
             this.sexoDataGridViewTextBoxColumn,
@@ -333,69 +341,15 @@
             this.casa,
             this.datanascimentoDataGridViewTextBoxColumn,
             this.datacadastroDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.funcionariosBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 293);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1262, 261);
-            this.dataGridView1.TabIndex = 26;
-            // 
-            // funcionariosBindingSource
-            // 
-            this.funcionariosBindingSource.DataSource = typeof(Athena.funcionarios);
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBairro.Location = new System.Drawing.Point(228, 183);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(184, 20);
-            this.txtBairro.TabIndex = 27;
-            // 
-            // txtRua
-            // 
-            this.txtRua.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtRua.Location = new System.Drawing.Point(435, 183);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(184, 20);
-            this.txtRua.TabIndex = 29;
-            // 
-            // ndCasa
-            // 
-            this.ndCasa.Location = new System.Drawing.Point(642, 184);
-            this.ndCasa.Name = "ndCasa";
-            this.ndCasa.Size = new System.Drawing.Size(96, 20);
-            this.ndCasa.TabIndex = 60;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(639, 167);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 13);
-            this.label13.TabIndex = 63;
-            this.label13.Text = "CASA Nº";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(432, 167);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(30, 13);
-            this.label12.TabIndex = 62;
-            this.label12.Text = "RUA";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(225, 167);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 61;
-            this.label11.Text = "BAIRRO";
+            this.dgFuncionarios.DataSource = this.funcionariosBindingSource;
+            this.dgFuncionarios.Location = new System.Drawing.Point(27, 293);
+            this.dgFuncionarios.Name = "dgFuncionarios";
+            this.dgFuncionarios.ReadOnly = true;
+            this.dgFuncionarios.RowHeadersVisible = false;
+            this.dgFuncionarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgFuncionarios.Size = new System.Drawing.Size(1262, 261);
+            this.dgFuncionarios.TabIndex = 18;
             // 
             // primeironomeDataGridViewTextBoxColumn
             // 
@@ -483,18 +437,91 @@
             this.datacadastroDataGridViewTextBoxColumn.Name = "datacadastroDataGridViewTextBoxColumn";
             this.datacadastroDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // funcionariosBindingSource
+            // 
+            this.funcionariosBindingSource.DataSource = typeof(funcionarios);
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBairro.Location = new System.Drawing.Point(228, 183);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(184, 20);
+            this.txtBairro.TabIndex = 9;
+            // 
+            // txtRua
+            // 
+            this.txtRua.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRua.Location = new System.Drawing.Point(435, 183);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(184, 20);
+            this.txtRua.TabIndex = 10;
+            // 
+            // ndCasa
+            // 
+            this.ndCasa.Location = new System.Drawing.Point(642, 184);
+            this.ndCasa.Name = "ndCasa";
+            this.ndCasa.Size = new System.Drawing.Size(96, 20);
+            this.ndCasa.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(639, 167);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "CASA Nº";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(432, 167);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 13);
+            this.label12.TabIndex = 62;
+            this.label12.Text = "RUA";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(225, 167);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "BAIRRO";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(776, 79);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.TabIndex = 65;
+            this.label14.Text = "DOCUMENTO";
+            // 
+            // txtDoc
+            // 
+            this.txtDoc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDoc.Location = new System.Drawing.Point(779, 95);
+            this.txtDoc.Name = "txtDoc";
+            this.txtDoc.Size = new System.Drawing.Size(184, 20);
+            this.txtDoc.TabIndex = 4;
+            // 
             // cadastroFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1317, 580);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtDoc);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ndCasa);
             this.Controls.Add(this.txtRua);
             this.Controls.Add(this.txtBairro);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgFuncionarios);
             this.Controls.Add(this.btnEditarFuncionario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
@@ -513,7 +540,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTel1);
             this.Controls.Add(this.txtUNome);
             this.Controls.Add(this.txtPNome);
             this.Controls.Add(this.btnImportarFoto);
@@ -528,7 +555,7 @@
             this.Text = "cadastroFuncionarios";
             this.Load += new System.EventHandler(this.cadastroFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFuncionarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndCasa)).EndInit();
             this.ResumeLayout(false);
@@ -544,7 +571,7 @@
         private System.Windows.Forms.Button btnImportarFoto;
         private System.Windows.Forms.TextBox txtPNome;
         private System.Windows.Forms.TextBox txtUNome;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -563,7 +590,7 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditarFuncionario;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgFuncionarios;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtRua;
@@ -583,5 +610,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn casa;
         private System.Windows.Forms.DataGridViewTextBoxColumn datanascimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datacadastroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtDoc;
     }
 }
