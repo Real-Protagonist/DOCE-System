@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelScroll = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgCliente = new System.Windows.Forms.DataGridView();
             this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,7 +100,9 @@
             // panelScroll
             // 
             this.panelScroll.AutoScroll = true;
-            this.panelScroll.Controls.Add(this.textBox1);
+            this.panelScroll.Controls.Add(this.label18);
+            this.panelScroll.Controls.Add(this.label17);
+            this.panelScroll.Controls.Add(this.txtCliente);
             this.panelScroll.Controls.Add(this.label6);
             this.panelScroll.Controls.Add(this.dgCliente);
             this.panelScroll.Controls.Add(this.dgDividas);
@@ -141,12 +145,33 @@
             this.panelScroll.Size = new System.Drawing.Size(1270, 721);
             this.panelScroll.TabIndex = 0;
             // 
-            // textBox1
+            // label18
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 20);
-            this.textBox1.TabIndex = 102;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(724, 116);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(135, 15);
+            this.label18.TabIndex = 104;
+            this.label18.Text = "PAGAMENTOS FEITOS";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(724, 446);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(162, 15);
+            this.label17.TabIndex = 103;
+            this.label17.Text = "PAGAMENTOS EM ATRASO";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(40, 108);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(305, 20);
+            this.txtCliente.TabIndex = 102;
+            this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             // 
             // label6
             // 
@@ -164,6 +189,7 @@
             this.dgCliente.AllowUserToDeleteRows = false;
             this.dgCliente.AutoGenerateColumns = false;
             this.dgCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgCliente.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgCliente.ColumnHeadersHeight = 30;
             this.dgCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.contratoDataGridViewTextBoxColumn,
@@ -182,6 +208,7 @@
             this.dgCliente.ShowRowErrors = false;
             this.dgCliente.Size = new System.Drawing.Size(671, 163);
             this.dgCliente.TabIndex = 100;
+            this.dgCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellDoubleClick);
             // 
             // contratoDataGridViewTextBoxColumn
             // 
@@ -245,6 +272,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgDividas.AutoGenerateColumns = false;
             this.dgDividas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDividas.BackgroundColor = System.Drawing.Color.Silver;
             this.dgDividas.ColumnHeadersHeight = 30;
             this.dgDividas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -301,6 +329,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgSPagos.AutoGenerateColumns = false;
             this.dgSPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgSPagos.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgSPagos.ColumnHeadersHeight = 40;
             this.dgSPagos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.servicoDataGridViewTextBoxColumn,
@@ -315,7 +344,7 @@
             this.dgSPagos.RowHeadersVisible = false;
             this.dgSPagos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgSPagos.ShowRowErrors = false;
-            this.dgSPagos.Size = new System.Drawing.Size(531, 318);
+            this.dgSPagos.Size = new System.Drawing.Size(531, 283);
             this.dgSPagos.TabIndex = 98;
             // 
             // servicoDataGridViewTextBoxColumn
@@ -458,14 +487,17 @@
             this.txtValorPagar.Size = new System.Drawing.Size(131, 20);
             this.txtValorPagar.TabIndex = 87;
             this.txtValorPagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorPagar.TextChanged += new System.EventHandler(this.txtValorPagar_TextChanged);
             // 
             // txtMulta
             // 
+            this.txtMulta.Enabled = false;
             this.txtMulta.Location = new System.Drawing.Point(432, 380);
             this.txtMulta.Name = "txtMulta";
             this.txtMulta.Size = new System.Drawing.Size(104, 20);
             this.txtMulta.TabIndex = 86;
             this.txtMulta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMulta.TextChanged += new System.EventHandler(this.txtMulta_TextChanged);
             // 
             // txtSubtotal
             // 
@@ -625,6 +657,7 @@
             // 
             // cbMes
             // 
+            this.cbMes.Enabled = false;
             this.cbMes.FormattingEnabled = true;
             this.cbMes.Items.AddRange(new object[] {
             "JANEIRO",
@@ -674,6 +707,7 @@
             this.cbServico.Name = "cbServico";
             this.cbServico.Size = new System.Drawing.Size(227, 21);
             this.cbServico.TabIndex = 67;
+            this.cbServico.SelectedIndexChanged += new System.EventHandler(this.cbServico_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -746,7 +780,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbServico;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgCliente;
         private System.Windows.Forms.DataGridView dgDividas;
@@ -770,5 +804,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bairroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn casa;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }

@@ -36,3 +36,4 @@ C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\K4os.Compression.LZ4.x
 C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\K4os.Hash.xxHash.xml
 C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.cadastroUser.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Debug\Athena.emulumentosServicos.resources

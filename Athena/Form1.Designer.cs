@@ -68,6 +68,8 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lkLog = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnEmulumento = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fpMain.SuspendLayout();
@@ -88,6 +90,7 @@
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -296,6 +299,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel23);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel7);
             this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -373,7 +377,7 @@
             // 
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel6.Controls.Add(this.btnAbout);
-            this.panel6.Location = new System.Drawing.Point(279, 3);
+            this.panel6.Location = new System.Drawing.Point(371, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(86, 67);
             this.panel6.TabIndex = 4;
@@ -502,6 +506,27 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // panel7
+            // 
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel7.Controls.Add(this.btnEmulumento);
+            this.panel7.Location = new System.Drawing.Point(279, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(86, 67);
+            this.panel7.TabIndex = 5;
+            // 
+            // btnEmulumento
+            // 
+            this.btnEmulumento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEmulumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEmulumento.Location = new System.Drawing.Point(0, 0);
+            this.btnEmulumento.Name = "btnEmulumento";
+            this.btnEmulumento.Size = new System.Drawing.Size(86, 67);
+            this.btnEmulumento.TabIndex = 1;
+            this.btnEmulumento.Text = "Emulumentos de Servicos";
+            this.btnEmulumento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEmulumento.UseVisualStyleBackColor = true;
+            // 
             // Athena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +559,7 @@
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -579,6 +605,8 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.LinkLabel lkLog;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnEmulumento;
     }
 }
 

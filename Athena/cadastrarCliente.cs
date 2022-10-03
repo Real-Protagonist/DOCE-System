@@ -59,9 +59,8 @@ namespace Athena
             }
 
             if (vf != 1)
-            {
-                //try
-                //{
+                try
+                {
                     if (cn.cn().State == ConnectionState.Closed)
                         cn.cn().Open();
                     MySqlCommand cm = new MySqlCommand("INSERT INTO CLIENTES VALUES (DEFAULT, '" + this.txtPNomeC.Text + "', '" + this.txtUNomeC.Text + "','" +
@@ -82,17 +81,16 @@ namespace Athena
                                 MessageBox.Show("Contrato Salvo!", "Abertura de Contrato", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                //}
-                //catch
-                //{
+                }
+                catch
+                {
                     MessageBox.Show("Possível erro na conexão com o servidor!", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
-                //finally
-                //{
+                }
+                finally
+                {
                     this.cadastrarCliente_Load(sender, e);
                     cn.cn().Close();
-                //}
-            }
+                }
         }
 
         private void txtPNomeC_TextChanged(object sender, EventArgs e)
@@ -127,8 +125,6 @@ namespace Athena
 
         private void cadastrarCliente_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(DateTime.Now.ToString("yyy"));
-
             try
             {
                 if (cn.cn().State == ConnectionState.Closed)
@@ -138,7 +134,7 @@ namespace Athena
                 if (dr.Read())
                     this.txtContrato.Text = DateTime.Now.ToString("yyyy") + "" + DateTime.Now.ToString("MM") + "/" + ((int.Parse(dr["MXC"].ToString())) + 1).ToString();
                 dr.Close();
-                string str = "SELECT primeiro_nome, ultimo_nome, sexo, bairro, rua, casa, tel1, tel2, email, data_registo as cadastro, contrato_numero as contrato FROM CLIENTES AS CL INNER JOIN CONTRATOS AS CT ON CT.CLIENTE = CL.ID_CL";
+                string str = "SELECT primeiro_nome, ultimo_nome, sexo, bairro, rua, casa, tel1, tel2, email, data_registo as cadastro, documento, contrato_numero as contrato FROM CLIENTES AS CL INNER JOIN CONTRATOS AS CT ON CT.CLIENTE = CL.ID_CL";
                 this.clientesBindingSource.DataSource = cn.cn().Query<clientes>(str, commandType: CommandType.Text);
                 this.dgCliente.Refresh();
             }
