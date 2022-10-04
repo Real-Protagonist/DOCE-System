@@ -116,21 +116,58 @@ namespace Athena
             {
                 this.txtSubtotal.Text = double.Parse(this.txtValorPagar.Text).ToString("N2", df);
                 this.txtTotal.Text = double.Parse(this.txtValorPagar.Text).ToString("N2", df);
+                valor_p = float.Parse(this.txtValorPagar.Text);
             }
             else
             {
                 this.txtSubtotal.Text = double.Parse("0").ToString("N2", df);
                 this.txtTotal.Text = double.Parse("0").ToString("N2", df);
+                valor_p = 0;
             }
+            this.txtMulta_TextChanged(sender, e);
         }
 
+        private float valor_p;
+        private float valor_multa;
+        private float mv;
+        private float sm;
         private void txtMulta_TextChanged(object sender, EventArgs e)
         {
+            float mp = valor_p;
             if (!String.IsNullOrEmpty(this.txtMulta.Text))
-            {
-                String mv = (double.Parse(this.txtMulta.Text)).ToString("N2", df);
-                this.txtTotal.Text = (double.Parse(this.txtValorPagar.Text) + double.Parse(mv)).ToString("N2", df);
-            }
+                mv = (float.Parse(this.txtMulta.Text));
+            else
+                mv = 0;
+
+            sm = (mv + mp);
+            this.txtTotal.Text = (sm).ToString("N2", df);
+        }
+
+        private float valor_enter;
+        private float smt;
+        private void txtValorPago_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this.txtValorPago.Text))
+                valor_enter = float.Parse(this.txtValorPago.Text);
+            else
+                valor_enter = 0;
+            smt = float.Parse(this.txtTotal.Text);
+            float totTc = valor_enter - smt;
+            this.txtTroco.Text = totTc.ToString();
+        }
+
+        private float desc;
+        private float smtd;
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this.txtDesconto.Text))
+                desc = float.Parse(this.txtDesconto.Text);
+            else
+                desc = 0;
+
+            float totT = float.Parse(this.txtTotal.Text);
+            smtd = (valor_p + mv) - desc;
+            this.txtTotal.Text = smtd.ToString("N2", df);
         }
     }
 }
