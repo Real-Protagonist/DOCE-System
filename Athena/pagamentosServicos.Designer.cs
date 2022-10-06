@@ -45,6 +45,10 @@
             this.casaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgDividas = new System.Windows.Forms.DataGridView();
+            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgSPagos = new System.Windows.Forms.DataGridView();
             this.servicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,10 +89,6 @@
             this.cbServico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pagamentosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelScroll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
@@ -299,6 +299,30 @@
             this.dgDividas.ShowRowErrors = false;
             this.dgDividas.Size = new System.Drawing.Size(531, 198);
             this.dgDividas.TabIndex = 99;
+            // 
+            // servico
+            // 
+            this.servico.HeaderText = "Serviço";
+            this.servico.Name = "servico";
+            this.servico.ReadOnly = true;
+            // 
+            // mes
+            // 
+            this.mes.HeaderText = "Mês";
+            this.mes.Name = "mes";
+            this.mes.ReadOnly = true;
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            // 
+            // ano
+            // 
+            this.ano.HeaderText = "Ano";
+            this.ano.Name = "ano";
+            this.ano.ReadOnly = true;
             // 
             // dgSPagos
             // 
@@ -707,30 +731,6 @@
             // pagamentosBindingSource1
             // 
             this.pagamentosBindingSource1.DataSource = typeof(pagamentos);
-            // 
-            // servico
-            // 
-            this.servico.HeaderText = "Serviço";
-            this.servico.Name = "servico";
-            this.servico.ReadOnly = true;
-            // 
-            // mes
-            // 
-            this.mes.HeaderText = "Mês";
-            this.mes.Name = "mes";
-            this.mes.ReadOnly = true;
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            // 
-            // ano
-            // 
-            this.ano.HeaderText = "Ano";
-            this.ano.Name = "ano";
-            this.ano.ReadOnly = true;
             // 
             // pagamentosServicos
             // 
