@@ -35,13 +35,16 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgCliente = new System.Windows.Forms.DataGridView();
+            this.idContDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ruaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.casaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgDividas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_pagar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.multa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pagamentosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgSPagos = new System.Windows.Forms.DataGridView();
             this.servicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,21 +84,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbServico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.idContDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bairroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ruaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.casaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagamentosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelScroll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDividas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelScroll
@@ -212,6 +212,67 @@
             this.dgCliente.TabIndex = 100;
             this.dgCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellDoubleClick);
             // 
+            // idContDataGridViewTextBoxColumn
+            // 
+            this.idContDataGridViewTextBoxColumn.DataPropertyName = "idCont";
+            this.idContDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.idContDataGridViewTextBoxColumn.HeaderText = "#";
+            this.idContDataGridViewTextBoxColumn.Name = "idContDataGridViewTextBoxColumn";
+            this.idContDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contratoDataGridViewTextBoxColumn
+            // 
+            this.contratoDataGridViewTextBoxColumn.DataPropertyName = "contrato";
+            this.contratoDataGridViewTextBoxColumn.HeaderText = "Contrato";
+            this.contratoDataGridViewTextBoxColumn.Name = "contratoDataGridViewTextBoxColumn";
+            this.contratoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // primeironomeDataGridViewTextBoxColumn
+            // 
+            this.primeironomeDataGridViewTextBoxColumn.DataPropertyName = "primeiro_nome";
+            this.primeironomeDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.primeironomeDataGridViewTextBoxColumn.HeaderText = "Primeiro Nome";
+            this.primeironomeDataGridViewTextBoxColumn.Name = "primeironomeDataGridViewTextBoxColumn";
+            this.primeironomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ultimonomeDataGridViewTextBoxColumn
+            // 
+            this.ultimonomeDataGridViewTextBoxColumn.DataPropertyName = "ultimo_nome";
+            this.ultimonomeDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.ultimonomeDataGridViewTextBoxColumn.HeaderText = "Último Nome";
+            this.ultimonomeDataGridViewTextBoxColumn.Name = "ultimonomeDataGridViewTextBoxColumn";
+            this.ultimonomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "documento";
+            this.documentoDataGridViewTextBoxColumn.FillWeight = 130F;
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bairroDataGridViewTextBoxColumn
+            // 
+            this.bairroDataGridViewTextBoxColumn.DataPropertyName = "bairro";
+            this.bairroDataGridViewTextBoxColumn.HeaderText = "Bairro";
+            this.bairroDataGridViewTextBoxColumn.Name = "bairroDataGridViewTextBoxColumn";
+            this.bairroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ruaDataGridViewTextBoxColumn
+            // 
+            this.ruaDataGridViewTextBoxColumn.DataPropertyName = "rua";
+            this.ruaDataGridViewTextBoxColumn.HeaderText = "Rua";
+            this.ruaDataGridViewTextBoxColumn.Name = "ruaDataGridViewTextBoxColumn";
+            this.ruaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // casaDataGridViewTextBoxColumn
+            // 
+            this.casaDataGridViewTextBoxColumn.DataPropertyName = "casa";
+            this.casaDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.casaDataGridViewTextBoxColumn.HeaderText = "Casa";
+            this.casaDataGridViewTextBoxColumn.Name = "casaDataGridViewTextBoxColumn";
+            this.casaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // clientesBindingSource
             // 
             this.clientesBindingSource.DataSource = typeof(clientes);
@@ -222,16 +283,14 @@
             this.dgDividas.AllowUserToDeleteRows = false;
             this.dgDividas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgDividas.AutoGenerateColumns = false;
             this.dgDividas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgDividas.BackgroundColor = System.Drawing.Color.Silver;
             this.dgDividas.ColumnHeadersHeight = 30;
             this.dgDividas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.valor_pagar,
-            this.multa});
-            this.dgDividas.DataSource = this.pagamentosBindingSource1;
+            this.servico,
+            this.mes,
+            this.valor,
+            this.ano});
             this.dgDividas.Location = new System.Drawing.Point(727, 465);
             this.dgDividas.Name = "dgDividas";
             this.dgDividas.ReadOnly = true;
@@ -240,38 +299,6 @@
             this.dgDividas.ShowRowErrors = false;
             this.dgDividas.Size = new System.Drawing.Size(531, 198);
             this.dgDividas.TabIndex = 99;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "servico";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Serviço";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "mes";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mês";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // valor_pagar
-            // 
-            this.valor_pagar.DataPropertyName = "valor_pagar";
-            this.valor_pagar.HeaderText = "Valor";
-            this.valor_pagar.Name = "valor_pagar";
-            this.valor_pagar.ReadOnly = true;
-            // 
-            // multa
-            // 
-            this.multa.DataPropertyName = "multa";
-            this.multa.HeaderText = "Multa";
-            this.multa.Name = "multa";
-            this.multa.ReadOnly = true;
-            // 
-            // pagamentosBindingSource1
-            // 
-            this.pagamentosBindingSource1.DataSource = typeof(pagamentos);
             // 
             // dgSPagos
             // 
@@ -677,66 +704,33 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "PAGAMENTO DE SERVIÇOS";
             // 
-            // idContDataGridViewTextBoxColumn
+            // pagamentosBindingSource1
             // 
-            this.idContDataGridViewTextBoxColumn.DataPropertyName = "idCont";
-            this.idContDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.idContDataGridViewTextBoxColumn.HeaderText = "#";
-            this.idContDataGridViewTextBoxColumn.Name = "idContDataGridViewTextBoxColumn";
-            this.idContDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pagamentosBindingSource1.DataSource = typeof(pagamentos);
             // 
-            // contratoDataGridViewTextBoxColumn
+            // servico
             // 
-            this.contratoDataGridViewTextBoxColumn.DataPropertyName = "contrato";
-            this.contratoDataGridViewTextBoxColumn.HeaderText = "Contrato";
-            this.contratoDataGridViewTextBoxColumn.Name = "contratoDataGridViewTextBoxColumn";
-            this.contratoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.servico.HeaderText = "Serviço";
+            this.servico.Name = "servico";
+            this.servico.ReadOnly = true;
             // 
-            // primeironomeDataGridViewTextBoxColumn
+            // mes
             // 
-            this.primeironomeDataGridViewTextBoxColumn.DataPropertyName = "primeiro_nome";
-            this.primeironomeDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.primeironomeDataGridViewTextBoxColumn.HeaderText = "Primeiro Nome";
-            this.primeironomeDataGridViewTextBoxColumn.Name = "primeironomeDataGridViewTextBoxColumn";
-            this.primeironomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mes.HeaderText = "Mês";
+            this.mes.Name = "mes";
+            this.mes.ReadOnly = true;
             // 
-            // ultimonomeDataGridViewTextBoxColumn
+            // valor
             // 
-            this.ultimonomeDataGridViewTextBoxColumn.DataPropertyName = "ultimo_nome";
-            this.ultimonomeDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.ultimonomeDataGridViewTextBoxColumn.HeaderText = "Último Nome";
-            this.ultimonomeDataGridViewTextBoxColumn.Name = "ultimonomeDataGridViewTextBoxColumn";
-            this.ultimonomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
-            // documentoDataGridViewTextBoxColumn
+            // ano
             // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "documento";
-            this.documentoDataGridViewTextBoxColumn.FillWeight = 130F;
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bairroDataGridViewTextBoxColumn
-            // 
-            this.bairroDataGridViewTextBoxColumn.DataPropertyName = "bairro";
-            this.bairroDataGridViewTextBoxColumn.HeaderText = "Bairro";
-            this.bairroDataGridViewTextBoxColumn.Name = "bairroDataGridViewTextBoxColumn";
-            this.bairroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ruaDataGridViewTextBoxColumn
-            // 
-            this.ruaDataGridViewTextBoxColumn.DataPropertyName = "rua";
-            this.ruaDataGridViewTextBoxColumn.HeaderText = "Rua";
-            this.ruaDataGridViewTextBoxColumn.Name = "ruaDataGridViewTextBoxColumn";
-            this.ruaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // casaDataGridViewTextBoxColumn
-            // 
-            this.casaDataGridViewTextBoxColumn.DataPropertyName = "casa";
-            this.casaDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.casaDataGridViewTextBoxColumn.HeaderText = "Casa";
-            this.casaDataGridViewTextBoxColumn.Name = "casaDataGridViewTextBoxColumn";
-            this.casaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ano.HeaderText = "Ano";
+            this.ano.Name = "ano";
+            this.ano.ReadOnly = true;
             // 
             // pagamentosServicos
             // 
@@ -757,9 +751,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDividas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSPagos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagamentosBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -803,10 +797,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgCliente;
         private System.Windows.Forms.DataGridView dgDividas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_pagar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn multa;
         private System.Windows.Forms.BindingSource pagamentosBindingSource1;
         private System.Windows.Forms.DataGridView dgSPagos;
         private System.Windows.Forms.DataGridViewTextBoxColumn servicoDataGridViewTextBoxColumn;
@@ -826,5 +816,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bairroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn casaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ano;
     }
 }

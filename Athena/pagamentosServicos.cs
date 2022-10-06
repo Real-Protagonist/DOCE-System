@@ -98,6 +98,8 @@ namespace Athena
                     cn.cn().Open();
                 string str = "SELECT mes, descricao as servico, observacao, data_pagamento, data_registo FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON CT.ID_CONT = PG.CONTRATO WHERE CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'";
                 this.pagamentosBindingSource.DataSource = cn.cn().Query<pagamentos>(str, commandType: CommandType.Text);
+
+                this.fill_debt();
             }
             finally
             {
@@ -240,6 +242,31 @@ namespace Athena
                                     }
                                     dr.Close();
                                 }
+
+                                if (this.cbServico.SelectedIndex == 1)
+                                {
+                                    cm = new MySqlCommand("SELECT * FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON PG.CONTRATO = CT.ID_CONT WHERE PG.MES LIKE '" + this.cbMes.SelectedItem.ToString() + "' AND CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "' AND PG.DATA_PAGAMENTO LIKE '%" + this.dtPagamento.Value.ToString("yyyy") + "%'", cn.cn());
+                                    dr = cm.ExecuteReader();
+                                    if (dr.Read())
+                                        MessageBox.Show("O Mês já feito pago.", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    else
+                                    {
+                                        dr.Close();
+
+                                        cm = new MySqlCommand("INSERT INTO PAGAMENTOS (DESCRICAO, MES, VALOR_PAGAR, MULTA, DESCONTO, VALOR_ENTREGUE, TROCO, DATA_PAGAMENTO, DATA_REGISTO, OBSERVACAO, CONTRATO, FUNCIONARIO) VALUES ('" +
+                                            this.cbServico.SelectedItem.ToString() + "', '" + this.cbMes.SelectedItem.ToString() + "', '" + float.Parse(this.txtValorPagar.Text) + "', '" + float.Parse(this.txtMulta.Text) + "', '" +
+                                            float.Parse(this.txtDesconto.Text) + "', '" + float.Parse(this.txtValorPago.Text) + "', '" + this.totTc + "', '" +
+                                            this.dtPagamento.Value.ToString("yyyy-MM-dd") + "', '" + this.dtRegisto.Value.ToString("yyyy-MM-dd") + "', '" + this.rtxtObs.Text + "', '" + idCont + "', '" + login.id + "')", cn.cn());
+                                        if (cm.ExecuteNonQuery() != 0)
+                                        {
+                                            MessageBox.Show("Serviço Pago Com Successo!", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            string str = "SELECT mes, descricao as servico, observacao, data_pagamento, data_registo FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON CT.ID_CONT = PG.CONTRATO WHERE CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'";
+                                            this.pagamentosBindingSource.DataSource = cn.cn().Query<pagamentos>(str, commandType: CommandType.Text);
+                                            this.dgSPagos.Refresh();
+                                        }
+                                    }
+                                    dr.Close();
+                                }
                             }
                             finally
                             {
@@ -253,6 +280,63 @@ namespace Athena
                     MessageBox.Show("Introduza o respectivo motante do serviço!", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("Informe os Dados do cliente", "Dados de Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void fill_debt()
+        {
+            int ano = 0;
+            float vlp = 0;
+
+            cm = new MySqlCommand("SELECT * FROM SERVICOS_PAGAMENTO WHERE SERVICO LIKE 'MENSALIDADE'", cn.cn());
+            dr = cm.ExecuteReader();
+            if (dr.Read())
+                vlp = float.Parse(dr["VALOR"].ToString());
+            dr.Close();
+
+            cm = new MySqlCommand("SELECT * FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON PG.CONTRATO = CT.ID_CONT WHERE PG.DESCRICAO LIKE 'ABERTURA DE CONTRATO' AND CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'", cn.cn());
+            dr = cm.ExecuteReader();
+            if (dr.Read())
+            {
+                ano = int.Parse(Convert.ToDateTime(dr["DATA_REGISTO"].ToString()).ToString("yyyy"));
+                dr.Close();
+                for (int an = DateTime.Now.Year; an >= ano; an--)
+                    for (int im = 1; im <= DateTime.Now.Month; im++)
+                    {
+                        cm = new MySqlCommand("SELECT * FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON PG.CONTRATO = CT.ID_CONT WHERE PG.MES LIKE '" + this.getMonth(im) + "' AND PG.DATA_PAGAMENTO LIKE '%" + an + "%'", cn.cn());
+                        dr = cm.ExecuteReader();
+                        if (!dr.Read())
+                            this.dgDividas.Rows.Add("SERVIÇO MENSAL", this.getMonth(im), vlp.ToString("N2", df), an);
+                        dr.Close();
+                    }
+            }
+            dr.Close();
+        }
+        private String getMonth(int mes)
+        {
+            if (mes == 1)
+                return "JANEIRO";
+            else if (mes == 2)
+                return "FEVEREIRO";
+            else if (mes == 3)
+                return "MARÇO";
+            else if (mes == 4)
+                return "ABRIL";
+            else if (mes == 5)
+                return "MAIO";
+            else if (mes == 6)
+                return "JUNHO";
+            else if (mes == 7)
+                return "JULHO";
+            else if (mes == 8)
+                return "AGOSTO";
+            else if (mes == 9)
+                return "SETEMBRO";
+            else if (mes == 10)
+                return "OUTUBRO";
+            else if (mes == 11)
+                return "NOVEMBRO";
+            else
+                return "DEZEMBRO";
         }
     }
 }

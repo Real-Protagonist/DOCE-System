@@ -145,6 +145,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
     <None Include="Properties\DataSources\Athena.Funcoes.funcionarios.datasource" />
     <None Include="Properties\DataSources\clientes.datasource" />
     <None Include="Properties\DataSources\funcionarios.datasource" />
