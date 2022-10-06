@@ -54,6 +54,8 @@
             this.btnCadFuncionario = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCadUsuario = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnEmulumento = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
             this.mainContainer = new System.Windows.Forms.Panel();
@@ -68,8 +70,6 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lkLog = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnEmulumento = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fpMain.SuspendLayout();
@@ -85,12 +85,12 @@
             this.panel23.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -373,6 +373,28 @@
             this.btnCadUsuario.UseVisualStyleBackColor = true;
             this.btnCadUsuario.Click += new System.EventHandler(this.btnCadUsuario_Click);
             // 
+            // panel7
+            // 
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel7.Controls.Add(this.btnEmulumento);
+            this.panel7.Location = new System.Drawing.Point(279, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(86, 67);
+            this.panel7.TabIndex = 5;
+            // 
+            // btnEmulumento
+            // 
+            this.btnEmulumento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEmulumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEmulumento.Location = new System.Drawing.Point(0, 0);
+            this.btnEmulumento.Name = "btnEmulumento";
+            this.btnEmulumento.Size = new System.Drawing.Size(86, 67);
+            this.btnEmulumento.TabIndex = 1;
+            this.btnEmulumento.Text = "Emulumentos de Servicos";
+            this.btnEmulumento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEmulumento.UseVisualStyleBackColor = true;
+            this.btnEmulumento.Click += new System.EventHandler(this.btnEmulumento_Click);
+            // 
             // panel6
             // 
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -506,27 +528,6 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // panel7
-            // 
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel7.Controls.Add(this.btnEmulumento);
-            this.panel7.Location = new System.Drawing.Point(279, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(86, 67);
-            this.panel7.TabIndex = 5;
-            // 
-            // btnEmulumento
-            // 
-            this.btnEmulumento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEmulumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEmulumento.Location = new System.Drawing.Point(0, 0);
-            this.btnEmulumento.Name = "btnEmulumento";
-            this.btnEmulumento.Size = new System.Drawing.Size(86, 67);
-            this.btnEmulumento.TabIndex = 1;
-            this.btnEmulumento.Text = "Emulumentos de Servicos";
-            this.btnEmulumento.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEmulumento.UseVisualStyleBackColor = true;
-            // 
             // Athena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,12 +555,12 @@
             this.panel23.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

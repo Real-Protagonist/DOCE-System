@@ -116,6 +116,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emulumentos de Serviços";
+            this.Load += new System.EventHandler(this.emulumentosServicos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -19,6 +19,7 @@ namespace Athena
         public String contrato { get; set; }
         public int tel1 { get; set; }
         public int tel2 { get; set; }
+        public int idCont { get; set; }
         public DateTime cadastro { get; set; }
     }
 }
