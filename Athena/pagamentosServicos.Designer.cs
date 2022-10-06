@@ -35,13 +35,6 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgCliente = new System.Windows.Forms.DataGridView();
-            this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bairroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ruaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.casa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgDividas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +81,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbServico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.idContDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contratoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primeironomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimonomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ruaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.casaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelScroll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
@@ -192,13 +193,14 @@
             this.dgCliente.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgCliente.ColumnHeadersHeight = 30;
             this.dgCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idContDataGridViewTextBoxColumn,
             this.contratoDataGridViewTextBoxColumn,
             this.primeironomeDataGridViewTextBoxColumn,
             this.ultimonomeDataGridViewTextBoxColumn,
             this.documentoDataGridViewTextBoxColumn,
             this.bairroDataGridViewTextBoxColumn,
             this.ruaDataGridViewTextBoxColumn,
-            this.casa});
+            this.casaDataGridViewTextBoxColumn});
             this.dgCliente.DataSource = this.clientesBindingSource;
             this.dgCliente.Location = new System.Drawing.Point(40, 134);
             this.dgCliente.Name = "dgCliente";
@@ -209,56 +211,6 @@
             this.dgCliente.Size = new System.Drawing.Size(671, 163);
             this.dgCliente.TabIndex = 100;
             this.dgCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCliente_CellDoubleClick);
-            // 
-            // contratoDataGridViewTextBoxColumn
-            // 
-            this.contratoDataGridViewTextBoxColumn.DataPropertyName = "contrato";
-            this.contratoDataGridViewTextBoxColumn.HeaderText = "Contrato";
-            this.contratoDataGridViewTextBoxColumn.Name = "contratoDataGridViewTextBoxColumn";
-            this.contratoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // primeironomeDataGridViewTextBoxColumn
-            // 
-            this.primeironomeDataGridViewTextBoxColumn.DataPropertyName = "primeiro_nome";
-            this.primeironomeDataGridViewTextBoxColumn.HeaderText = "Primeiro Nome";
-            this.primeironomeDataGridViewTextBoxColumn.Name = "primeironomeDataGridViewTextBoxColumn";
-            this.primeironomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ultimonomeDataGridViewTextBoxColumn
-            // 
-            this.ultimonomeDataGridViewTextBoxColumn.DataPropertyName = "ultimo_nome";
-            this.ultimonomeDataGridViewTextBoxColumn.HeaderText = "Último Nome";
-            this.ultimonomeDataGridViewTextBoxColumn.Name = "ultimonomeDataGridViewTextBoxColumn";
-            this.ultimonomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // documentoDataGridViewTextBoxColumn
-            // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "documento";
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bairroDataGridViewTextBoxColumn
-            // 
-            this.bairroDataGridViewTextBoxColumn.DataPropertyName = "bairro";
-            this.bairroDataGridViewTextBoxColumn.HeaderText = "Bairro";
-            this.bairroDataGridViewTextBoxColumn.Name = "bairroDataGridViewTextBoxColumn";
-            this.bairroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ruaDataGridViewTextBoxColumn
-            // 
-            this.ruaDataGridViewTextBoxColumn.DataPropertyName = "rua";
-            this.ruaDataGridViewTextBoxColumn.HeaderText = "Rua";
-            this.ruaDataGridViewTextBoxColumn.Name = "ruaDataGridViewTextBoxColumn";
-            this.ruaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // casa
-            // 
-            this.casa.DataPropertyName = "casa";
-            this.casa.FillWeight = 50F;
-            this.casa.HeaderText = "Casa";
-            this.casa.Name = "casa";
-            this.casa.ReadOnly = true;
             // 
             // clientesBindingSource
             // 
@@ -417,8 +369,9 @@
             this.btnCadastrarC.Name = "btnCadastrarC";
             this.btnCadastrarC.Size = new System.Drawing.Size(96, 30);
             this.btnCadastrarC.TabIndex = 95;
-            this.btnCadastrarC.Text = "CADASTRAR";
+            this.btnCadastrarC.Text = "PAGAR";
             this.btnCadastrarC.UseVisualStyleBackColor = false;
+            this.btnCadastrarC.Click += new System.EventHandler(this.btnCadastrarC_Click);
             // 
             // txtContrato
             // 
@@ -483,6 +436,7 @@
             // 
             // txtValorPagar
             // 
+            this.txtValorPagar.Enabled = false;
             this.txtValorPagar.Location = new System.Drawing.Point(285, 379);
             this.txtValorPagar.Name = "txtValorPagar";
             this.txtValorPagar.Size = new System.Drawing.Size(131, 20);
@@ -723,6 +677,67 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "PAGAMENTO DE SERVIÇOS";
             // 
+            // idContDataGridViewTextBoxColumn
+            // 
+            this.idContDataGridViewTextBoxColumn.DataPropertyName = "idCont";
+            this.idContDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.idContDataGridViewTextBoxColumn.HeaderText = "#";
+            this.idContDataGridViewTextBoxColumn.Name = "idContDataGridViewTextBoxColumn";
+            this.idContDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contratoDataGridViewTextBoxColumn
+            // 
+            this.contratoDataGridViewTextBoxColumn.DataPropertyName = "contrato";
+            this.contratoDataGridViewTextBoxColumn.HeaderText = "Contrato";
+            this.contratoDataGridViewTextBoxColumn.Name = "contratoDataGridViewTextBoxColumn";
+            this.contratoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // primeironomeDataGridViewTextBoxColumn
+            // 
+            this.primeironomeDataGridViewTextBoxColumn.DataPropertyName = "primeiro_nome";
+            this.primeironomeDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.primeironomeDataGridViewTextBoxColumn.HeaderText = "Primeiro Nome";
+            this.primeironomeDataGridViewTextBoxColumn.Name = "primeironomeDataGridViewTextBoxColumn";
+            this.primeironomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ultimonomeDataGridViewTextBoxColumn
+            // 
+            this.ultimonomeDataGridViewTextBoxColumn.DataPropertyName = "ultimo_nome";
+            this.ultimonomeDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.ultimonomeDataGridViewTextBoxColumn.HeaderText = "Último Nome";
+            this.ultimonomeDataGridViewTextBoxColumn.Name = "ultimonomeDataGridViewTextBoxColumn";
+            this.ultimonomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "documento";
+            this.documentoDataGridViewTextBoxColumn.FillWeight = 130F;
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bairroDataGridViewTextBoxColumn
+            // 
+            this.bairroDataGridViewTextBoxColumn.DataPropertyName = "bairro";
+            this.bairroDataGridViewTextBoxColumn.HeaderText = "Bairro";
+            this.bairroDataGridViewTextBoxColumn.Name = "bairroDataGridViewTextBoxColumn";
+            this.bairroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ruaDataGridViewTextBoxColumn
+            // 
+            this.ruaDataGridViewTextBoxColumn.DataPropertyName = "rua";
+            this.ruaDataGridViewTextBoxColumn.HeaderText = "Rua";
+            this.ruaDataGridViewTextBoxColumn.Name = "ruaDataGridViewTextBoxColumn";
+            this.ruaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // casaDataGridViewTextBoxColumn
+            // 
+            this.casaDataGridViewTextBoxColumn.DataPropertyName = "casa";
+            this.casaDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.casaDataGridViewTextBoxColumn.HeaderText = "Casa";
+            this.casaDataGridViewTextBoxColumn.Name = "casaDataGridViewTextBoxColumn";
+            this.casaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // pagamentosServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -801,14 +816,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataregistoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource pagamentosBindingSource;
         private System.Windows.Forms.BindingSource clientesBindingSource;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idContDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contratoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn primeironomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ultimonomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bairroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn casa;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn casaDataGridViewTextBoxColumn;
     }
 }

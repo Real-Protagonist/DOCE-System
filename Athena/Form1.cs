@@ -121,5 +121,16 @@ namespace Athena
             else
                 this.Athena_Load(sender, e);
         }
+
+        private void btnEmulumento_Click(object sender, EventArgs e)
+        {
+            if (this.lkLog.Text != "Logout")
+                this.Athena_Load(sender, e);
+            else
+            {
+                emulumentosServicos em = new emulumentosServicos();
+                em.ShowDialog();
+            }
+        }
     }
 }

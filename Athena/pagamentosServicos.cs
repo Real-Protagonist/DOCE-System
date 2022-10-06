@@ -41,6 +41,23 @@ namespace Athena
             this.cbFPagamento.SelectedIndex = 3;
             this.cbMes.SelectedIndex = 0;
             this.cbServico.SelectedIndex = 0;
+
+            try
+            {
+                if (cn.cn().State == ConnectionState.Closed)
+                    cn.cn().Open();
+                string str = "SELECT ID_CONT as idCont, primeiro_nome, ultimo_nome, contrato_numero as contrato, documento, bairro, rua, casa FROM CLIENTES AS CL INNER JOIN CONTRATOS AS CT ON CT.CLIENTE = CL.ID_CL";
+                this.clientesBindingSource.DataSource = cn.cn().Query<clientes>(str, commandType: CommandType.Text);
+                this.dgCliente.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Possível erro na conexão com o banco de dados.", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                cn.cn().Close();
+            }
         }
 
         private void txtCliente_TextChanged(object sender, EventArgs e)
@@ -50,7 +67,7 @@ namespace Athena
                 {
                     if (cn.cn().State == ConnectionState.Closed)
                         cn.cn().Open();
-                    string str = "SELECT primeiro_nome, ultimo_nome, contrato_numero as contrato, documento, bairro, rua, casa FROM CLIENTES AS CL INNER JOIN CONTRATOS AS CT ON CT.CLIENTE = CL.ID_CL WHERE CL.PRIMEIRO_NOME LIKE '%" + this.txtCliente.Text + "%' OR CL.ULTIMO_NOME LIKE '%" + this.txtCliente.Text + "%' OR CT.CONTRATO_NUMERO LIKE '" + this.txtCliente.Text + "%'";
+                    string str = "SELECT ID_CONT as idCont, primeiro_nome, ultimo_nome, contrato_numero as contrato, documento, bairro, rua, casa FROM CLIENTES AS CL INNER JOIN CONTRATOS AS CT ON CT.CLIENTE = CL.ID_CL WHERE CL.PRIMEIRO_NOME LIKE '%" + this.txtCliente.Text + "%' OR CL.ULTIMO_NOME LIKE '%" + this.txtCliente.Text + "%' OR CT.CONTRATO_NUMERO LIKE '" + this.txtCliente.Text + "%'";
                     this.clientesBindingSource.DataSource = cn.cn().Query<clientes>(str, commandType: CommandType.Text);
                     this.dgCliente.Refresh();
                 }
@@ -69,17 +86,18 @@ namespace Athena
             }
         }
 
+        private int idCont;
         private void dgCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.txtContrato.Text = (this.dgCliente.CurrentRow.Cells[0].Value.ToString());
+            this.txtContrato.Text = (this.dgCliente.CurrentRow.Cells[1].Value.ToString());
+            idCont = int.Parse(this.dgCliente.CurrentRow.Cells[0].Value.ToString());
 
             try
             {
                 if (cn.cn().State == ConnectionState.Closed)
                     cn.cn().Open();
                 string str = "SELECT mes, descricao as servico, observacao, data_pagamento, data_registo FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON CT.ID_CONT = PG.CONTRATO WHERE CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'";
-                this.clientesBindingSource.DataSource = cn.cn().Query<clientes>(str, commandType: CommandType.Text);
-                this.dgSPagos.Refresh();
+                this.pagamentosBindingSource.DataSource = cn.cn().Query<pagamentos>(str, commandType: CommandType.Text);
             }
             finally
             {
@@ -93,7 +111,16 @@ namespace Athena
             {
                 this.txtMulta.Enabled = true;
                 this.cbMes.Enabled = true;
+                this.txtValorPagar.Enabled = false;
             }
+            else
+            {
+                this.txtMulta.Enabled = false;
+                this.cbMes.Enabled = false;
+                this.txtValorPagar.Enabled = false;
+            }
+            if (this.cbServico.SelectedIndex == 2)
+                this.txtValorPagar.Enabled = true;
             try
             {
                 if (cn.cn().State == ConnectionState.Closed)
@@ -101,7 +128,9 @@ namespace Athena
                 MySqlCommand cm = new MySqlCommand("SELECT * FROM SERVICOS_PAGAMENTO WHERE ID_SERVICO = '" + (this.cbServico.SelectedIndex + 1) + "'", cn.cn());
                 MySqlDataReader dr = cm.ExecuteReader();
                 if (dr.Read())
-                    this.txtValorPagar.Text = dr["VALOR_PAGAR"].ToString();
+                    this.txtValorPagar.Text = dr["VALOR"].ToString();
+                else
+                    this.txtValorPagar.Text = "0";
                 dr.Close();
             }
             finally
@@ -131,6 +160,7 @@ namespace Athena
         private float valor_multa;
         private float mv;
         private float sm;
+        private float totTt;
         private void txtMulta_TextChanged(object sender, EventArgs e)
         {
             float mp = valor_p;
@@ -139,21 +169,23 @@ namespace Athena
             else
                 mv = 0;
 
-            sm = (mv + mp);
+            sm = (mv + mp) - desc;
+            totTt = sm;
             this.txtTotal.Text = (sm).ToString("N2", df);
         }
 
         private float valor_enter;
         private float smt;
+        private float totTc;
         private void txtValorPago_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(this.txtValorPago.Text))
                 valor_enter = float.Parse(this.txtValorPago.Text);
             else
                 valor_enter = 0;
-            smt = float.Parse(this.txtTotal.Text);
-            float totTc = valor_enter - smt;
-            this.txtTroco.Text = totTc.ToString();
+
+            totTc = valor_enter - totTt;
+            this.txtTroco.Text = totTc.ToString("N2", df);
         }
 
         private float desc;
@@ -167,7 +199,60 @@ namespace Athena
 
             float totT = float.Parse(this.txtTotal.Text);
             smtd = (valor_p + mv) - desc;
+            totTt = smtd;
             this.txtTotal.Text = smtd.ToString("N2", df);
+        }
+
+        private MySqlCommand cm;
+        private MySqlDataReader dr;
+        private void btnCadastrarC_Click(object sender, EventArgs e)
+        {
+            float pars = 0;
+            if (!String.IsNullOrEmpty(this.txtContrato.Text))
+                if (!String.IsNullOrEmpty(this.txtValorPagar.Text))
+                    if (float.TryParse(this.txtValorPagar.Text, out pars))
+                        if (!String.IsNullOrEmpty(this.txtValorPago.Text))
+                            try
+                            {
+                                if (cn.cn().State == ConnectionState.Closed)
+                                    cn.cn().Open();
+                                if (this.cbServico.SelectedIndex == 0)
+                                {
+                                    cm = new MySqlCommand("SELECT * FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON PG.CONTRATO = CT.ID_CONT WHERE PG.DESCRICAO LIKE '" + this.cbServico.SelectedItem.ToString() + "' AND CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'", cn.cn());
+                                    dr = cm.ExecuteReader();
+                                    if (dr.Read())
+                                        MessageBox.Show("O contrato já feito pago.", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    else
+                                    {
+                                        dr.Close();
+
+                                        cm = new MySqlCommand("INSERT INTO PAGAMENTOS (DESCRICAO, VALOR_PAGAR, MULTA, DESCONTO, VALOR_ENTREGUE, TROCO, DATA_PAGAMENTO, DATA_REGISTO, OBSERVACAO, CONTRATO, FUNCIONARIO) VALUES ('" +
+                                            this.cbServico.SelectedItem.ToString() + "', '" + float.Parse(this.txtValorPagar.Text) + "', '" + float.Parse(this.txtMulta.Text) + "', '" +
+                                            float.Parse(this.txtDesconto.Text) + "', '" + float.Parse(this.txtValorPago.Text) + "', '" + this.totTc + "', '" +
+                                            this.dtPagamento.Value.ToString("yyyy-MM-dd") + "', '" + this.dtRegisto.Value.ToString("yyyy-MM-dd") + "', '" + this.rtxtObs.Text + "', '" + idCont + "', '" + login.id + "')", cn.cn());
+                                        if (cm.ExecuteNonQuery() != 0)
+                                        {
+                                            MessageBox.Show("Serviço Pago Com Successo!", "Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            string str = "SELECT mes, descricao as servico, observacao, data_pagamento, data_registo FROM CONTRATOS AS CT INNER JOIN PAGAMENTOS AS PG ON CT.ID_CONT = PG.CONTRATO WHERE CT.CONTRATO_NUMERO = '" + this.txtContrato.Text + "'";
+                                            this.pagamentosBindingSource.DataSource = cn.cn().Query<pagamentos>(str, commandType: CommandType.Text);
+                                            this.dgSPagos.Refresh();
+                                        }
+                                    }
+                                    dr.Close();
+                                }
+                            }
+                            finally
+                            {
+                                cn.cn().Close();
+                            }
+                        else
+                            MessageBox.Show("Intrduza o valor entregue.", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MessageBox.Show("O valor introduzido não é válido", "Erro de Valores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                    MessageBox.Show("Introduza o respectivo motante do serviço!", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show("Informe os Dados do cliente", "Dados de Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

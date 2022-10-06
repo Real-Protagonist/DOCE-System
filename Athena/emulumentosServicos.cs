@@ -47,7 +47,7 @@ namespace Athena
         {
             String valor = "";
             if (!String.IsNullOrEmpty(this.txtValorPagar.Text))
-                valor = double.Parse(this.txtValorPagar.Text).ToString("N2", df);
+                valor = float.Parse(this.txtValorPagar.Text).ToString("N2", df);
             else
                 valor = "0";
             try
@@ -62,6 +62,11 @@ namespace Athena
             {
                 cn.cn().Close();
             }
+        }
+
+        private void emulumentosServicos_Load(object sender, EventArgs e)
+        {
+            df.NumberFormat.NumberGroupSeparator = "";
         }
     }
 }
