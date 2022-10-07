@@ -28,19 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.fatura = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
+            // 
+            // fatura
+            // 
+            this.fatura.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fatura.Location = new System.Drawing.Point(0, 0);
+            this.fatura.Name = "fatura";
+            this.fatura.ServerReport.BearerToken = null;
+            this.fatura.ShowBackButton = false;
+            this.fatura.Size = new System.Drawing.Size(995, 577);
+            this.fatura.TabIndex = 0;
+            this.fatura.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            this.fatura.Load += new System.EventHandler(this.fatura_Load);
             // 
             // formFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 577);
+            this.ClientSize = new System.Drawing.Size(995, 577);
+            this.Controls.Add(this.fatura);
             this.Name = "formFactura";
-            this.Text = "formFactura";
+            this.Text = "Fatura Recibo";
+            this.Load += new System.EventHandler(this.formFactura_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer fatura;
     }
 }
