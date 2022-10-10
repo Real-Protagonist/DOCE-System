@@ -1,0 +1,14 @@
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Release\Athena.exe.config
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Release\Athena.exe
+C:\Users\Veraax\source\repos\DOCE-System\Athena\bin\Release\Athena.pdb
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.csproj.AssemblyReference.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.csproj.SuggestedBindingRedirects.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.cadastrarCliente.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.cadastroFuncionarios.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.Athena.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.pagamentosServicos.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.Properties.Resources.resources
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.csproj.GenerateResource.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.csproj.CoreCompileInputs.cache
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.exe
+C:\Users\Veraax\source\repos\DOCE-System\Athena\obj\Release\Athena.pdb
