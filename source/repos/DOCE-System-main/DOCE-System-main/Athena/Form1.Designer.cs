@@ -70,6 +70,8 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lkLog = new System.Windows.Forms.LinkLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnEmpresa = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fpMain.SuspendLayout();
@@ -91,6 +93,7 @@
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -300,6 +303,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
+            this.flowLayoutPanel1.Controls.Add(this.panel8);
             this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -399,7 +403,7 @@
             // 
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel6.Controls.Add(this.btnAbout);
-            this.panel6.Location = new System.Drawing.Point(371, 3);
+            this.panel6.Location = new System.Drawing.Point(463, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(86, 67);
             this.panel6.TabIndex = 4;
@@ -528,6 +532,28 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // panel8
+            // 
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel8.Controls.Add(this.btnEmpresa);
+            this.panel8.Location = new System.Drawing.Point(371, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(86, 67);
+            this.panel8.TabIndex = 5;
+            // 
+            // btnEmpresa
+            // 
+            this.btnEmpresa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEmpresa.Location = new System.Drawing.Point(0, 0);
+            this.btnEmpresa.Name = "btnEmpresa";
+            this.btnEmpresa.Size = new System.Drawing.Size(86, 67);
+            this.btnEmpresa.TabIndex = 1;
+            this.btnEmpresa.Text = "Empresa";
+            this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEmpresa.UseVisualStyleBackColor = true;
+            this.btnEmpresa.Click += new System.EventHandler(this.btnEmpresa_Click);
+            // 
             // Athena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +587,7 @@
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -608,6 +635,8 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnEmulumento;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnEmpresa;
     }
 }
 

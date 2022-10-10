@@ -132,5 +132,16 @@ namespace Athena
                 em.ShowDialog();
             }
         }
+
+        private void btnEmpresa_Click(object sender, EventArgs e)
+        {
+            if (this.lkLog.Text != "Logout")
+                this.Athena_Load(sender, e);
+            else
+            {
+                dadosEmpresa emp = new dadosEmpresa();
+                emp.ShowDialog();
+            }
+        }
     }
 }

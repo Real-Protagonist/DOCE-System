@@ -48,7 +48,7 @@ namespace Athena
             {
                 this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("empresa", dr["nome"].ToString()));
                 this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("nifEmp", dr["NIF"].ToString()));
-                this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("endereco", dr["ENDERECO"].ToString()));
+                this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("endereco", dr["ENDERCO"].ToString()));
                 this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("tel1", dr["TEL1"].ToString()));
                 this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("tel2", dr["TEL2"].ToString()));
             }
@@ -66,7 +66,6 @@ namespace Athena
                 this.fatura.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("valorPagar", dr["totPag"].ToString()));
             }
             dr.Close();
-            this.fatura.RefreshReport();
 
             int idf = 0;
             cm = new MySqlCommand("SELECT MAX(ID_FACT) as FRT FROM FACTURA", cn.cn());
@@ -74,12 +73,20 @@ namespace Athena
             if (dr.Read())
                 if (int.Parse(dr["FRT"].ToString()) != 0 || dr["FRT"].ToString() != null)
                     idf = int.Parse(dr["FRT"].ToString());
+                else
+                    idf = 1;
             dr.Close();
 
             if (idf != 0)
             {
-
+                cm = new MySqlCommand("INSER INTO FACTURA(NUMERO_FACT, CONTRATO, DATA_EMISSAO, HORA_EMISSAO, FUNCIONARIO) VALUES('" + 
+                    (DateTime.Now.Year + "" + DateTime.Now.ToString("MM") + "/" + idf) + "', '" + this.getContrato() + "', '" + this.getData() + "', '" + 
+                    DateTime.Now.ToString("H:mm:ss")+ "', '" + login.id + "')", cn.cn());
+                cm.ExecuteNonQuery();
             }
+
+            this.fatura.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.fatura.RefreshReport();
         }
 
         private void fatura_Load(object sender, EventArgs e)

@@ -95,6 +95,12 @@
       <DependentUpon>cadastroUser.cs</DependentUpon>
     </Compile>
     <Compile Include="clientes.cs" />
+    <Compile Include="dadosEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dadosEmpresa.Designer.cs">
+      <DependentUpon>dadosEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="emulumentosServicos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cadastroUser.resx">
       <DependentUpon>cadastroUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dadosEmpresa.resx">
+      <DependentUpon>dadosEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="emulumentosServicos.resx">
       <DependentUpon>emulumentosServicos.cs</DependentUpon>

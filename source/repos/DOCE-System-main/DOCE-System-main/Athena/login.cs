@@ -86,5 +86,11 @@ namespace Athena
             id = 0;
             usuario = "";
         }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.Handled = (e.KeyChar == (char)Keys.Enter))
+                this.btnEnter_Click(sender, e);
+        }
     }
 }
